@@ -1,17 +1,65 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import Work from './Work'
+import Grid from './Grid'
 import portfolios from '../portfolios'
-import SingleImage from './SingleImage'
-import Imageset from './Imageset'
-import Description from './Description'
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isPortfolioVisible: false,
+      isGridVisible: true,
+      currentPortfolio: '',
+    }
+    this.handleClickThumbnail = this.handleClickThumbnail.bind(this);
+    this._renderPortfolio = this._renderPortfolio.bind(this);
+  }
+
+  handleClickThumbnail(portfolioName) {
+    this.setState(
+      {
+        isGridVisible: false, isPortfolioVisible: true, currentPortfolio: portfolioName
+      }
+    )
+  }
+
+  _renderPortfolio(id) {
+    portfolios.total.map((folio) => {
+      if (folio.title === id) {
+        console.log(`뭐지 ${JSON.stringify(folio, null, 2)}`)
+        return (
+          <Work portfolio={folio} article={this.props.article} articleTimeout={this.props.articleTimeout} />
+        )
+      }
+    })
+  }
+
   render() {
     let close = (
       <div
         className="close"
         onClick={() => {
+          this.setState((prev) => {
+            return {
+              ...prev,
+              ...{isGridVisible: true, isPortfolioVisible: false}
+            }
+          })
           this.props.onCloseArticle()
+        }}
+      ></div>
+    )
+    let closeAtPortfolio = (
+      <div
+        className="close"
+        onClick={() => {
+          this.setState((prev) => {
+            return {
+              ...prev,
+              ...{isGridVisible: true, isPortfolioVisible: false}
+            }
+          })
         }}
       ></div>
     )
@@ -29,22 +77,18 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">{portfolios.first.title}</h2>
-          {portfolios.first.items.map((item)=>{
-            console.log('yahoooo')
-            console.log(item)
-            console.log(JSON.stringify(item, null, 2))
-            if (item.type === 'imageset') {
-              return <Imageset images={item.images} />
-            }
-            if (item.type === 'image') {
-              return <SingleImage imageItemUri={item.uri} />
-            }
-            if (item.type === 'description') {
-              return <Description content={item.description} />
+          {this.state.isGridVisible && (
+            <Grid portfolios={portfolios.total} onClickItem={this.handleClickThumbnail} />
+          )}
+          {this.state.isPortfolioVisible && portfolios.total.map((folio) => {
+            if (folio.title === this.state.currentPortfolio) {
+              console.log(`뭐지 ${JSON.stringify(folio, null, 2)}`)
+              return (
+                <Work portfolio={folio} article={this.props.article} articleTimeout={this.props.articleTimeout} />
+              )
             }
           })}
-          {close}
+          {this.state.isGridVisible? close : closeAtPortfolio}
         </article>
 
         <article

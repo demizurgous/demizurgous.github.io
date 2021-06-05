@@ -1,22 +1,20 @@
 import React from 'react'
-import SimpleImageSlider from "react-simple-image-slider"
-
-const WIDTH = 896
-const HEIGHT = 504
+import {Carousel} from 'react-responsive-carousel'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 const Imageset = ({prop, images}) => {
-  console.log(`비비빔밥 ${JSON.stringify(images, null, 2)}`)
     return (
           <div className="image main">
-            <SimpleImageSlider
-              width={WIDTH}
-              height={HEIGHT}
-              images={[
-        {
-          uri: 'https://mdn.mozillademos.org/files/7693/catfront.png',
-        },
-      ]}
-            />
+            <Carousel dynamicHeight={true} showThumbs={false} showArrows={true} onChange={()=>{}} onClickItem={()=>{}} onClickThumb={()=>{}}>
+              {images.map((image)=>{
+                return (
+                  <div>
+                    <img src={image.uri} />
+                  </div>
+                )
+              })}
+            </Carousel>
+
           </div>
         );
 }
