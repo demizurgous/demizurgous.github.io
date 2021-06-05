@@ -17,6 +17,7 @@ class Main extends React.Component {
   }
 
   handleClickThumbnail(portfolioName) {
+    this.props.onOpenPortfolio()
     this.setState(
       {
         isGridVisible: false, isPortfolioVisible: true, currentPortfolio: portfolioName
@@ -25,14 +26,11 @@ class Main extends React.Component {
   }
 
   _renderPortfolio(id) {
-    portfolios.total.map((folio) => {
-      if (folio.title === id) {
-        console.log(`뭐지 ${JSON.stringify(folio, null, 2)}`)
-        return (
-          <Work portfolio={folio} article={this.props.article} articleTimeout={this.props.articleTimeout} />
-        )
-      }
-    })
+    const folio = portfolios.total.find((folio) => 
+      (folio.title === id) )
+    return (
+      <Work key={id} portfolio={folio} article={this.props.article} articleTimeout={this.props.articleTimeout} timeout={this.props.timeout} />
+    )
   }
 
   render() {
@@ -54,6 +52,7 @@ class Main extends React.Component {
       <div
         className="close"
         onClick={() => {
+          this.props.onClosePortfolio()
           this.setState((prev) => {
             return {
               ...prev,
@@ -80,14 +79,7 @@ class Main extends React.Component {
           {this.state.isGridVisible && (
             <Grid portfolios={portfolios.total} onClickItem={this.handleClickThumbnail} />
           )}
-          {this.state.isPortfolioVisible && portfolios.total.map((folio) => {
-            if (folio.title === this.state.currentPortfolio) {
-              console.log(`뭐지 ${JSON.stringify(folio, null, 2)}`)
-              return (
-                <Work portfolio={folio} article={this.props.article} articleTimeout={this.props.articleTimeout} />
-              )
-            }
-          })}
+          {this.state.isPortfolioVisible && this._renderPortfolio(this.state.currentPortfolio)}
           {this.state.isGridVisible? close : closeAtPortfolio}
         </article>
 
@@ -172,6 +164,8 @@ Main.propTypes = {
   article: PropTypes.string,
   articleTimeout: PropTypes.bool,
   onCloseArticle: PropTypes.func,
+  onClosePortfolio: PropTypes.func,
+  onOpenPortfolio: PropTypes.func,
   timeout: PropTypes.bool,
   setWrapperRef: PropTypes.func.isRequired,
 }

@@ -14,7 +14,7 @@ const Grid = (props) => {
           onClickItem(id)
         }
         return (
-          <div onClick={onClickBox} style={{ width: 160, height: 200 }}>
+          <div key={folio.title} onClick={onClickBox} style={{ width: 160, height: 200 }}>
             <img width={width} height={height} src={folio.thumbnailUri} />
             <span>{folio.description}</span>
           </div>

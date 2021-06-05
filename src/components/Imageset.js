@@ -5,10 +5,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 const Imageset = ({prop, images}) => {
     return (
           <div className="image main">
-            <Carousel dynamicHeight={true} showThumbs={false} showArrows={true} onChange={()=>{}} onClickItem={()=>{}} onClickThumb={()=>{}}>
+            <Carousel dynamicHeight={true} showThumbs={false} showArrows={true} onChange={()=>{}} onClickItem={()=>{}} onClickThumb={()=>{}} >
               {images.map((image)=>{
                 return (
-                  <div>
+                  <div key={image.uri}>
                     <img src={image.uri} />
                   </div>
                 )
