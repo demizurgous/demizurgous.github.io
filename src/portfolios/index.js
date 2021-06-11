@@ -1,3 +1,6 @@
+import testImage from '../images/test_Viewport_017.png'
+import testThumbnail from '../images/test_Viewport_078.png'
+
 const clone = (target) => {
   return JSON.parse(JSON.stringify(target))
 }
@@ -6,7 +9,8 @@ const testPortfolio = {
   title: 'beauty shots',
   date: 'good day tomorrow',
   description: 'bass ass shit',
-  thumbnailUri: 'https://lh3.googleusercontent.com/Q23Kyw2BjmYgLSlIJICmMhCWbUMpnx3GgTu4jkJfsL0IUoOlri5jRHpHtCaPUSPQJWnNYOZnZXRuXozhd0INPDVpdbUGCO8vCnpb60-tptj9p20u_QZC=w1920-h2420-n',
+  conceptUri: 'https://www.wikipedia.org',
+  thumbnailUri: testThumbnail,
   items: [
     {
       type: 'imageset',
@@ -14,7 +18,7 @@ const testPortfolio = {
       description: 'moo ya ho',
       images: [
         {
-          uri: 'https://lh3.googleusercontent.com/Q23Kyw2BjmYgLSlIJICmMhCWbUMpnx3GgTu4jkJfsL0IUoOlri5jRHpHtCaPUSPQJWnNYOZnZXRuXozhd0INPDVpdbUGCO8vCnpb60-tptj9p20u_QZC=w1920-h2420-n',
+          uri: testImage,
         },
         {
           uri: "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
@@ -42,7 +46,7 @@ const testPortfolio = {
 }
 const test5 = {
   ...testPortfolio,
-  ...{title: 've문제없지', description: '산와산와', thumbnailUri: 'http://cdn.kormedi.com/wp-content/uploads/2019/07/bobross.jpg'}
+  ...{title: 've문제없지', description: '산와산와', thumbnailUri: testThumbnail}
 }
 const test4 = {
   ...testPortfolio,
@@ -57,7 +61,7 @@ const testPortfolio2 = {
   ...{title: 'beauty shots 2',
   date: 'good day tomorrow',
   description: '무야호',
-  thumbnailUri: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png',
+  thumbnailUri: testThumbnail,
   }
 }
 export default {

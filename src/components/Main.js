@@ -74,7 +74,7 @@ class Main extends React.Component {
           className={`${this.props.article === 'work' ? 'active' : ''} ${
             this.props.articleTimeout ? 'timeout' : ''
           }`}
-          style={{ display: 'none' }}
+          style={{ display: 'none', paddingTop: '36px' }}
         >
           {this.state.isGridVisible && (
             <Grid portfolios={portfolios.total} onClickItem={this.handleClickThumbnail} />

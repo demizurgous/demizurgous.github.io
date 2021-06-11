@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import Artstation from '../assets/svg/artstation-brands.svg'
 
+// <span className="icon fab-artstation"></span>
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
-    <div className="logo">
-      <span className="icon fa-diamond"></span>
+    <div onClick={()=>{window.open('https://www.artstation.com/comma002c')}} className="logo" style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <img src={Artstation} style={{width:50, height: 50}} />
     </div>
     <div className="content">
       <div className="inner">
