@@ -3,6 +3,7 @@ import React from 'react'
 import Work from './Work'
 import Grid from './Grid'
 import portfolios from '../portfolios'
+import thumbnail from '../images/about_thumbnail.png'
 
 class Main extends React.Component {
   constructor(props) {
@@ -91,6 +92,17 @@ class Main extends React.Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">About</h2>
+          <div id="avatar" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+            <img style={{borderRadius: '50%', width: '150px', height: '150px', marginBottom: '30px'}} src={thumbnail} />
+          </div>
+          <div style={{textAlign: 'center', fontSize: '22px'}}>
+            <p><span style={{fontSize: '30px', letterSpacing: '0.3rem', fontWeight: 1000}}>Min Yeonhong</span><br/> 3D Character Artist<br/>   
+            Seoul, South Korea</p>   
+          </div>
+          <div style={{textAlign: 'center', fontSize: '20px'}}>
+            <span style={{fontSize: '18px'}}>demizurgous@gmail.com</span><br/>
+            <p>Looking for a job</p>
+          </div>
           {close}
         </article>
 
@@ -102,7 +114,7 @@ class Main extends React.Component {
           style={{ display: 'none' }}
         >
           <h2 className="major">Contact</h2>
-          <form method="post" action="#">
+          <form method="get" action="mailto:demizurgous@gmail.com" encType="text/plain">
             <div className="field half first">
               <label htmlFor="name">Name</label>
               <input type="text" name="name" id="name" />
@@ -113,11 +125,11 @@ class Main extends React.Component {
             </div>
             <div className="field">
               <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" rows="4"></textarea>
+              <textarea name="body" id="message" rows="4"></textarea>
             </div>
             <ul className="actions">
               <li>
-                <input type="submit" value="Send Message" className="special" />
+                <input type="submit" value="Send Email" className="special" />
               </li>
               <li>
                 <input type="reset" value="Reset" />

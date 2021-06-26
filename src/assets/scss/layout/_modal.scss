@@ -1,0 +1,38 @@
+#modal {
+	transition: all 1s;
+	display: block;
+	.notvisible {
+		transition: all 1s;
+		opacity: 0;
+	}
+	.fullsize {
+		transition: all 1s;
+	        position: fixed;
+                top: 0px;
+	        bottom: 0px;
+	        left: 0px;
+                right: 0px;
+		z-index: 999;
+		opacity: 1;
+		overflow: auto;
+	}
+	.fullsize > img {
+		opacity: 1;
+		transition: all 1s;
+	        width: auto;
+		z-index: 999;
+	}
+	.overlay  {
+		display: block;
+	        position: fixed;
+                top: 0px;
+	        bottom: 0px;
+	        left: 0px;
+                right: 0px;
+		background-color: gray;
+		opacity: 0.5;
+		width: 100%;
+		height: 100%;
+		z-index: 998;
+	}
+}

@@ -12,6 +12,8 @@
 		display: inline-block;
 		position: relative;
 
+		transition-duration: 0.5s;
+
 		&:before {
 			@include vendor('pointer-events', 'none');
 			background-image: url('../../images/overlay.png');
