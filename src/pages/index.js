@@ -86,28 +86,26 @@ class IndexPage extends React.Component {
   handleOpenPortfolio() {
 
     this.setState({
-      isArticleVisible: true,
+      articleTimeout: false,
     })
-
-    setTimeout(() => {
-      this.setState({
-        timeout: true
-      })
-    }, 325)
 
     setTimeout(() => {
       this.setState({
         articleTimeout: true
       })
-    }, 350)
+    }, 325)
 
   }
 
   handleClosePortfolio() {
 
+    this.setState({
+      articleTimeout: false,
+    })
+
     setTimeout(() => {
       this.setState({
-        article: 'work'
+        articleTimeout: true
       })
     }, 325)
 

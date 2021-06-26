@@ -16,7 +16,6 @@ const Work = (props) => {
 
   return (
     <div className={`article ${loading} ${props.article === 'work' ? 'active' : ''} ${props.articleTimeout ? 'timeout' : ''}`} style={{...props.timeout ? {display: 'flex'} : {display: 'none'}}}>
-      <h2 className="major">{portfolio.title}</h2>
       {portfolio.items.map((item, idx)=>{
         if (item.type === 'imageset') {
           return <Imageset key={idx} images={item.images} />

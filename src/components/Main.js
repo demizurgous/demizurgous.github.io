@@ -18,11 +18,11 @@ class Main extends React.Component {
 
   handleClickThumbnail(portfolioName) {
     this.props.onOpenPortfolio()
-    this.setState(
+    return setTimeout(() => {this.setState(
       {
         isGridVisible: false, isPortfolioVisible: true, currentPortfolio: portfolioName
       }
-    )
+    )}, 100)
   }
 
   _renderPortfolio(id) {
@@ -53,12 +53,12 @@ class Main extends React.Component {
         className="close"
         onClick={() => {
           this.props.onClosePortfolio()
-          this.setState((prev) => {
+          setTimeout(()=>{this.setState((prev) => {
             return {
               ...prev,
               ...{isGridVisible: true, isPortfolioVisible: false}
             }
-          })
+          })}, 200)
         }}
       ></div>
     )
