@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/gatsby-starter-dimension",
+  
   siteMetadata: {
     title: 'MYH Portfolio',
     author: 'MYH',
