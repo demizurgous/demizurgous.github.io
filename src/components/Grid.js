@@ -19,7 +19,7 @@ const Grid = (props) => {
         return (
           <div key={folio.title} onClick={onClickBox} style={{flex:1, justifyContent: 'center', marginBottom: '100px' }}>
             <img className={"thumbnail"} style={{borderRadius: 15, marginBottom: '30px'}} width={'100%'} height={'auto'} src={folio.thumbnailUri} />
-            <Icons buttonURL={'https://www.wikipedia.org'} />
+            <Icons buttonURL={folio.conceptUri} />
           </div>
         )
       })}
