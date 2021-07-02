@@ -7,10 +7,20 @@ import icon_zbrush from '../images/icon_zbrush.png'
 import React from 'react'
 
 const ICON_SIZE = 24
+const isMobile = () => {
+  if (typeof window !== 'undefined') {
+    return window.matchMedia && window.matchMedia("(max-width: 480px)").matches
+  }
+  return null
+}
 
 const Icons = ({buttonURL}) => {
+  const wrapperStyle = isMobile()? {
+    display: 'flex', flexDirection: 'column', justifyContent: 'space-between'
+  } : { display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}
+  console.log(`황당하네 ${isMobile()}`)
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+    <div style={wrapperStyle}>
       <div style={{ display: 'flex', paddingHorizontal: 5, flexDirection: 'row', justifyContent: 'center' }}>
         <div style={{ padding: 10}}>
           <img src={icon_3dsmax} style={{ borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }} width={ICON_SIZE} height={ICON_SIZE} />
