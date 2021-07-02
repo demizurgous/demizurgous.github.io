@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "predeploy": "yarn run build",
@@ -37,5 +37,5 @@
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
-  "homepage" : "https://cybaj.github.io/gatsby-starter-default/"
+  "homepage" : "https://demizurgous.github.io/"
 }
