@@ -46,7 +46,7 @@ const Layout = ({ children, location }) => {
               { name: 'keywords', content: 'portfolio, 3D model, artstation' },
             ]}
           >
-            <meta property="og:url" content="" />
+            <meta property="og:url" content="https://demizurgous.github.io/" />
             <meta property="og:type" content="article" />
             <meta property="og:title" content="MYH's portfolio" />
             <meta property="og:description" content={data.site.siteMetadata.description} />
