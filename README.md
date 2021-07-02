@@ -1,5 +1,5 @@
 # used for
-used for MYH's portfolio website
+_gatsby-starter-dimension_ used for MYH's portfolio website
 
 # gatsby-starter-dimension
 
