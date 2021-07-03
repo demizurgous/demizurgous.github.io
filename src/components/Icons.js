@@ -22,7 +22,7 @@ const Icons = ({buttonURL}) => {
     display: 'flex', flexDirection: 'column', justifyContent: 'space-between'
   } : { display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}
   return (
-    <div style={wrapperStyle}>
+    <div className="iconbox">
       <div style={{ display: 'flex', paddingHorizontal: 5, flexDirection: 'row', justifyContent: 'center' }}>
         <div style={{ padding: 10}}>
           <img src={icon_3dsmax} style={{ borderRadius: '20%', width: ICON_SIZE, height: ICON_SIZE }} width={ICON_SIZE} height={ICON_SIZE} />

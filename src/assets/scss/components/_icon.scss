@@ -15,3 +15,13 @@
 			display: none;
 		}
 	}
+
+	.iconbox {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row; 
+
+		@include breakpoint(xsmall) {
+			flex-direction: column; 
+		}
+	}
