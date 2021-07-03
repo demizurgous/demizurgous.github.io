@@ -7,18 +7,20 @@ import icon_zbrush from '../images/icon_zbrush.png'
 import React from 'react'
 
 const ICON_SIZE = 24
-const isMobile = () => {
-  if (typeof window !== 'undefined') {
-    return window.matchMedia && window.matchMedia("(max-width: 480px)").matches
-  }
-  return null
-}
 
 const Icons = ({buttonURL}) => {
+  const isMobile = React.useCallback(() => {
+    if (typeof window !== 'undefined') {
+      const _check = window.matchMedia && window.matchMedia("(max-width: 480px)").matches
+      console.log(`황당하네 ${_check}`)
+      return _check
+    }
+    return true
+  }, typeof window)
+
   const wrapperStyle = isMobile()? {
     display: 'flex', flexDirection: 'column', justifyContent: 'space-between'
   } : { display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}
-  console.log(`황당하네 ${isMobile()}`)
   return (
     <div style={wrapperStyle}>
       <div style={{ display: 'flex', paddingHorizontal: 5, flexDirection: 'row', justifyContent: 'center' }}>

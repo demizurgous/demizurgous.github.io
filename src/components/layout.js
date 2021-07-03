@@ -11,14 +11,14 @@ const Layout = ({ children, location }) => {
 
   if (location && location.pathname === '/') {
     content = (
-      <div>
+      <div style={{maxWidth: '100%'}}>
         {children}
       </div>
     )
   } else {
     content = (
-      <div id="wrapper" className="page">
-        <div>
+      <div style={{padding: 0}} id="wrapper" className="page">
+        <div style={{maxWidth: '100%'}}>
           {children}
         </div>
       </div>
@@ -38,7 +38,7 @@ const Layout = ({ children, location }) => {
         }
       `}
       render={data => (
-        <>
+        <div style={{maxWidth: '100%'}}>
           <Helmet
             title={data.site.siteMetadata.title}
             meta={[
@@ -59,7 +59,7 @@ const Layout = ({ children, location }) => {
             <html lang="en" />
           </Helmet>
           {content}
-        </>
+        </div>
       )}
     />
   )
